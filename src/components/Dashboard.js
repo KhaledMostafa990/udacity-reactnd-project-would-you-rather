@@ -43,7 +43,7 @@ class Dashboard extends Component {
                     :
                         answQuestion.map((id)=>(
                         <div key={id}>
-                            <AnswQuestion id={id}/>
+                            <AnswQuestion questionID={this.props.questionID} id={id}/>
                         </div> ))
                     }
    

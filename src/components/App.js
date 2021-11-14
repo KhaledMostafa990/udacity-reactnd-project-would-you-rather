@@ -8,6 +8,7 @@ import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
 import UnAnswQuestion from './UnAnswQuestion'
 import QuestionsPage from './QuestionsPage'
+import AnsweredQuestionsPage from './AnsweredQuestionsPage'
 
 class App extends Component {
 
@@ -40,7 +41,8 @@ class App extends Component {
                     ) : (
                       <Fragment>
                         <Route path='/' element={ <Dashboard questionID={this.questionID} /> } />
-                        <Route path='/question/:id' element={ <QuestionsPage id={this.state.questionID}/> } />
+                        <Route path='/unansweredquestion/:id' element={ <QuestionsPage id={this.state.questionID}/> } />
+                        <Route path='/answeredquestion/:id' element={ <AnsweredQuestionsPage id={this.state.questionID}/> } />
                       </Fragment>
                     )}          
                   </Routes>                          

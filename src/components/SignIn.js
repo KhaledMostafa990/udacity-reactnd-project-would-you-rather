@@ -40,12 +40,14 @@ import {Button, Container,FormControl, InputLabel, Select, MenuItem, FormHelperT
                     <FormControl style={{minWidth:'25rem'}} >
                         
                         <Select
+                        color='primary'
+                        variant='outlined'
                         labelId="select-label"
                         id="select"
                         value={text}
                         onChange={this.handleChange}
                         >
-                        <MenuItem value="">None</MenuItem>
+                        
                         <MenuItem value={'khaledfarghly'}>khaledfarghly</MenuItem>
                         <MenuItem value={'tylermcginnis'}>tylermcginnis</MenuItem>
                         <MenuItem value={'sarahedo'}>sarahedo</MenuItem>

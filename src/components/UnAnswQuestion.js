@@ -18,7 +18,7 @@ class UnAnswQuestion extends Component {
                     <Typography variant='body1' component='p' paragraph>{`${optionOne.text}`}</Typography>
                     <Typography variant='body1' component='p' paragraph>Or...</Typography>
                 
-                    <Link to={`/question/${id}`} ><Button onClick={()=> this.props.questionID(id)} variant='outlined' color='primary'>View And Vote</Button></Link>
+                    <Link to={`/unansweredquestion/${id}`} ><Button onClick={()=> this.props.questionID(id)} variant='outlined' color='primary'>View And Vote</Button></Link>
                 </Box>
             </div>
         )

@@ -1,6 +1,7 @@
 import {
     _getUsers,
     _getQuestions,
+    _saveQuestionAnswer,
 } from './_DATA'
 
 export function getInitialData () {
@@ -11,4 +12,9 @@ export function getInitialData () {
     users,
     questions,
   }))
+}
+
+export function handleSaveAnswer (authedUser, qid, answer) {
+  console.log(authedUser, qid, answer)
+  return _saveQuestionAnswer(authedUser, qid, answer)
 }
