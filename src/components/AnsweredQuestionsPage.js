@@ -11,10 +11,6 @@ import Button from '@material-ui/core/Button'
 class AnsweredQuestionsPage extends Component {
     render() {
         const { author, optionOne ,optionTwo , id} = this.props.question
-        console.log(this.props.question) 
-        console.log(this.props.users) 
-        console.log('Author ', author)
-        console.log(this.props.users[author].avatarURL) 
 
         return (
             <div className='questions-container'> 

@@ -36,7 +36,14 @@ import {Button, Container,FormControl, InputLabel, Select, MenuItem, FormHelperT
 
         return (
             <div>    
-                <Container maxWidth='md' style={{border:'1.5px solid #3F51B5', marginTop:'5rem', borderRadius:'2px', padding:'4rem'}}>
+                <Container maxWidth='sm' style={{
+                    border:'1.5px solid #3F51B5',
+                    marginTop:'5rem',
+                    borderRadius:'2px',
+                    padding:'3rem',
+                    display:'flex',
+                    justifyContent:'center',
+                    alignItems:'center'}}>
                     <FormControl style={{minWidth:'25rem'}} >
                         
                         <Select

@@ -131,8 +131,7 @@ export function _getQuestions () {
   })
 }
 
-export function formatQuestion (optionOneText, optionTwoText, author) {
-  // const {id, timestamp , optionOne, optionTwo } = author
+export function formatQuestion ({optionOneText, optionTwoText, author}) {
 
   return {
     id: generateUID(),

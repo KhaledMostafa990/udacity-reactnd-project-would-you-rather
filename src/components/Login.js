@@ -51,8 +51,8 @@ import {Button, FormControl, InputLabel, Select, MenuItem, Container} from '@mat
         
 
         return (
-            <div className='container'>
-                <Container maxWidth='sm'>
+            <div >
+                <Container>
                     <Button onClick={this.handleOpen}>  
                         <Link 
                             to='/dashboard'

@@ -16,10 +16,3 @@ body {
 a {
   text-decoration: none;
 }
-.app-container {
-  max-width: 100%;
-  padding: 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

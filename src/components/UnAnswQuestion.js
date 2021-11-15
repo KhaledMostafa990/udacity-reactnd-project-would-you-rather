@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container'
 
 class UnAnswQuestion extends Component {
     render() {
         const {author , optionOne , id} = this.props.question
-        console.log(author)
-        console.log(this.props.question.id)
         return (
-            <div className='questions-container'> 
+            <Container maxWidth='sm'> 
                 <Box component='div' display="flex" flexDirection='column' justifyContent='center' alignItems='center' m={1} p={1} style={{border:'2px solid #3F51B5'}}>                    
                     <Typography variant='h5' component='h5'  style={{marginBottom:'1.2rem'}}>Would You Rather</Typography>
 
@@ -20,7 +19,7 @@ class UnAnswQuestion extends Component {
                 
                     <Link to={`/unansweredquestion/${id}`} ><Button onClick={()=> this.props.questionID(id)} variant='outlined' color='primary'>View And Vote</Button></Link>
                 </Box>
-            </div>
+            </Container>
         )
     }
 }

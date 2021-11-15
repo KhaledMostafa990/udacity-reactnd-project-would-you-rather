@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 class UnAnswQuestion extends Component {
     render() {
         const {author , optionOne , id} = this.props.question
-        console.log(author)
-        console.log(this.props.question.id)
         return (
             <div className='questions-container'> 
                 <Box component='div' display="flex" flexDirection='column' justifyContent='center' alignItems='center' m={1} p={1} style={{border:'2px solid #3F51B5'}}>                    

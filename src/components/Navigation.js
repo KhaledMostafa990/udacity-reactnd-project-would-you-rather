@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import {  NavLink  } from 'react-router-dom'
 import { makeStyles ,createStyles , Theme} from '@material-ui/core/styles'
-import {CssBaseline ,AppBar ,Toolbar, Button , Typography ,ButtonGroup, Container ,Grid} from '@material-ui/core';
-import {} from '@material-ui/icons/Menu';
+import { AppBar ,Toolbar, Button , Typography ,ButtonGroup, Container ,Grid} from '@material-ui/core';
 
 
 
 const useStyles = makeStyles({
   nav: {
-    flexGrow:1,
     justifyContent:'center'
   },
   container: {
     alignItems:'center',
-    justifyContent:'center'
   },
   link: {
     color:'white'
@@ -28,27 +25,27 @@ export default function ButtonAppBar() {
     <div>
       <AppBar className={classes.nav} position="static">
         <Toolbar>
-        <Container className={classes.container} maxWidth='lg'>
-            <Grid container spacing={4} >
-                <Grid  item  sm='3' align='center' >
+
+            <Grid container >
+                <Grid  item  sm={3} align='left' >
                     <Typography variant="h5">
                         Would You Rather 
                     </Typography>
                 </Grid>
 
-                <Grid item   sm='6' align='center'>
-                    <ButtonGroup variant="contained" size='large' color='primary' aria-label="contained primary button group">
+                <Grid item   sm={6} align='center'>
+                    <ButtonGroup variant="contained"  color='primary' aria-label="contained primary button group">
                         <Button  className={classes.primaryNav}><NavLink to='/' className={classes.link}>Home</NavLink></Button>
-                        <Button  className={classes.primaryNav}><NavLink to='/newquestion' className={classes.link}>New Question</NavLink></Button>
+                        <Button  className={classes.primaryNav}><NavLink to='/addquestion' className={classes.link}>New Question</NavLink></Button>
                         <Button  className={classes.primaryNav}><NavLink to='/leaderboard' className={classes.link}>Leaderboard</NavLink></Button>
                     </ButtonGroup>
                 </Grid>
 
-                <Grid item  sm='3' align='right'>
+                <Grid item  sm={3} align='right'>
                     <Button className={classes.signIn} variant='contained' ><NavLink to='/signin' style={{color:'black'}}>Login</NavLink></Button>
                 </Grid>
+
             </Grid>
-        </Container>
         </Toolbar>
       </AppBar>
     </div>

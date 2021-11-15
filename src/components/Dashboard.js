@@ -5,6 +5,7 @@ import AnswQuestion from './AnswQuestion'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Box from '@material-ui/core/Box'
+import Container  from '@material-ui/core/Container'
 
 class Dashboard extends Component {
     state ={
@@ -27,9 +28,9 @@ class Dashboard extends Component {
         const { showUnAnsw} = this.state
         // console.log(this.props.questions)
         return (
-            <div> 
-                <Box style={{marginTop:'3rem' , border:'2px solid #3F51B5'}}>
-                    <ButtonGroup >
+            <Container maxWidth='sm' style={{marginTop:'3rem' , border:'.5px solid #3F51B5'}}> 
+                <Box align='center'>
+                    <ButtonGroup>
                         <Button onClick={this.showUnAnswQ} variant='contained' color='primary'>UnAnswered Question</Button>
                         <Button onClick={this.showAnswQ} variant='contained' color='primary'>Answered Question</Button>
                     </ButtonGroup>
@@ -47,7 +48,7 @@ class Dashboard extends Component {
                         </div> ))
                     }
    
-            </div>
+            </Container>
         )
     }
 }
