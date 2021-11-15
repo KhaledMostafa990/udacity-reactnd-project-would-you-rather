@@ -11,14 +11,17 @@ import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles({
     container:{
-        border:'1px solid blue',
+        hieght:'100%',
+        border:'2px solid #c1c1c1',
+        borderRadius:'.6rem',
         display:'flex',
         flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center'
+        marginTop:'4rem'
     },
-    title:{
-        margin:'1rem 0',
+    hr:{
+    border:'1px solid #c1c1c1',
+    width:'100%',
+    margin:'1rem 0'
     },
     inputs:{
         display:'flex',
@@ -26,13 +29,13 @@ const useStyles = makeStyles({
         alignItems:'center',
         marginBottom:'2rem'
     },
-    hr:{
-    border:'.1rem solid gray',
-    width:'75%',
-    margin:'1rem 0'
+    input:{
+        marginTop:'2rem',
+        width:'100%'
     },
     btn:{
-        marginTop:'1rem'
+        marginTop:'2rem',
+        width:'100%'
     }
 })
 function AddQuestion(props) {
@@ -52,39 +55,37 @@ function AddQuestion(props) {
     }
 
     return (
-        <Container maxWidth='sm' >
-            <Grid container className={classes.container} >
+        <Container maxWidth='sm' className={classes.container} >
+            
 
-                <Typography variant='h4' component='h4' className={classes.title}>Create New Question</Typography>              
-                <Typography component='span' className={classes.hr}></Typography>
+                <Typography align='center' variant='h4' component='h5'>Create New Question</Typography>              
+                <Typography align='center' component='span' className={classes.hr}></Typography>
 
-                <Typography variant='h5' component='h5' className={classes.title} align='left'>Would You rather..</Typography>              
+                <Typography align='left' variant='h6' component='p'  gutterBottom>Would You rather...</Typography>              
 
                 <form onSubmit={addQuestion} >
-                <Grid item className={classes.inputs}>
-                    <TextField
-                        onChange={(e)=> setoptionOne(e.target.value)}
-                        label="optionOne"
-                        size="small"
+                <Grid className={classes.inputs}>
+                    <TextField onChange={(e)=> setoptionOne(e.target.value)} label="optionOne" size="small"
                         id=""
                         defaultValue=""
                         variant="outlined"  
-                        required           
+                        required     
+                        className={classes.input}     
                         />
-                    <Typography component='span' className={classes.hr} style={{width:'25%'}} ></Typography>
-                    <TextField
-                        onChange={(e)=> setoptionTwo(e.target.value)}
-                        label="optionTwo"
-                        size="small"
+
+
+                    <TextField onChange={(e)=> setoptionTwo(e.target.value)} label="optionTwo" size="small"
                         id=""
                         defaultValue=""
                         variant="outlined"
-                        required
+                        required                              
+                        className={classes.input}
                         />
-                        <Button type='submit' className={classes.btn} variant='outlined' color='secondary' size='small'>Create</Button>
+
+                    <Button type='submit' className={classes.btn} variant='contained' color='primary'>Create</Button>
                 </Grid>
                 </form>
-           </Grid>
+           
         </Container>
     )
 }

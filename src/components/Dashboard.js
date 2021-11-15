@@ -43,7 +43,7 @@ class Dashboard extends Component {
         const { showUnAnsw, value} = this.state
         
         return (
-            <Container maxWidth='sm' style={{marginTop:'4rem', border:'4px solid #f1f1f1', borderRadius:'2px', padding:'0'}}> 
+            <Container maxWidth='sm' style={{marginTop:'4rem', border:'2px solid #c1c1c1', borderRadius:'.3rem', padding:'0'}}> 
                     <Paper  square >
                         <Tabs  
                             value={value}
@@ -56,6 +56,7 @@ class Dashboard extends Component {
                             <Tab icon={<QuestionAnswerIcon />} style={{width:'100%'}} label="Answered Question" />
                         </Tabs>
                     </Paper>
+                    
                     <Container style={{padding:'2rem'}}>
                         { showUnAnsw === true 
 

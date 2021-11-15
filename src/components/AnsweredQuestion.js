@@ -11,28 +11,35 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme)=> ({
     container:{
         hieght:'100%',
-        border:'4px solid #f1f1f1',
-        borderRadius:'1rem',
+        border:'2px solid #c1c1c1',
+        borderRadius:'.6rem',
         display:'flex',
         flexDirection:'column',
         marginBottom:'2rem'
     },
     header:{
-        backgroundColor:'#f4f4f4',
-        padding:'.6rem',
+        backgroundColor:'#f1f1f1',
+        borderRadius:'.6rem',
+        padding:'.4rem',
         hieght:'5rem',
         display:'flex',
         alignItems:'center'
     },
-    qDetails:{
+    questionContainer:{
         display:'flex',
         alignItems:'center',
         justifyContent:'space-around',  
     },
+    questionInfo:{
+        display:"flex",
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+    },
     hr:{
         display:'block',
         height:'6rem',
-        border:'.1px solid #999',
+        border:'.1px solid #c1c1c1',
     },
     large:{
         width: theme.spacing(15),
@@ -53,7 +60,8 @@ function AnsweredQuestion (props){
                     <Typography  variant='body1' component='p' >{`${users[author].name} asks`}</Typography>
                 </Box>
 
-                <Box className={classes.qDetails} >
+                <Box className={classes.questionContainer} >
+
                     <Box>
                         <Avatar className={classes.large} alt='User Image' src={users[author].avatarURL} />
                     </Box>
@@ -62,8 +70,8 @@ function AnsweredQuestion (props){
                         <Typography variant='body1' component='span' className={classes.hr}></Typography>
                     </Box>
 
-                    <Box component='div' display="flex" flexDirection='column' justifyContent='center' alignItems='center' m={1} p={1}>                    
-                        <Typography variant='h5' component='h5'  style={{marginBottom:'1.2rem'}}>Would You Rather</Typography>
+                    <Box className={classes.questionInfo} p={2}>                    
+                        <Typography variant='h5' component='h5'  style={{marginBottom:'1rem'}}>Would You Rather</Typography>
 
                         <Typography variant='body1' component='p' paragraph>{`${optionOne.text}`}</Typography>
                         <Typography variant='body1' component='p' paragraph>Or...</Typography>
