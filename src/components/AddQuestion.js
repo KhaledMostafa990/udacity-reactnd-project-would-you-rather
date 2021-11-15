@@ -1,12 +1,13 @@
 import React , {useState} from 'react'
 import { connect } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
 import { makeStyles ,createStyles , Theme} from '@material-ui/core/styles'
+import { saveQuestion } from '../actions/shared'
+import { useNavigate } from 'react-router'
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Container  from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { saveQuestion } from '../actions/shared'
 
 const useStyles = makeStyles({
     container:{
@@ -37,6 +38,7 @@ const useStyles = makeStyles({
 function AddQuestion(props) {
     const [optionOneText, setoptionOne] = useState()
     const [optionTwoText, setoptionTwo] = useState()
+    const navigate = useNavigate()
     const classes = useStyles();
 
 
@@ -46,7 +48,7 @@ function AddQuestion(props) {
         console.log(optionOneText, optionTwoText, authedUser)
 
         dispatch(saveQuestion(optionOneText, optionTwoText ,authedUser))
-
+        navigate('/')
     }
 
     return (

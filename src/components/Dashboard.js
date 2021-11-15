@@ -1,53 +1,75 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import UnAnswQuestion from './UnAnswQuestion'
-import AnswQuestion from './AnswQuestion'
+import AnsweredQuestion from './AnsweredQuestion'
+import Container  from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
-import Box from '@material-ui/core/Box'
-import Container  from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 
 class Dashboard extends Component {
     state ={
+        value:0,
         showUnAnsw:true,
     }
-    showUnAnswQ = ()=> {
+    componentDidMount(){
         this.setState({
-            showUnAnsw: true
+            value:0,
+            showUnAnsw:true,
         })
     }
-    showAnswQ = ()=> {
-        this.setState({
-            showUnAnsw: false
-        })
-    }
+    handleChange = (event, newValue) => {
+
+        if(newValue === 0){
+            this.setState({
+                value:0,
+                showUnAnsw:true,
+            })
+        }else if (newValue === 1){
+            this.setState({
+                value:1,
+                showUnAnsw:false,
+            })
+        }
+    };
 
     render() {
-
         const { unAnswQuestion , answQuestion } = this.props
-        const { showUnAnsw} = this.state
-        // console.log(this.props.questions)
+        const { showUnAnsw, value} = this.state
+        
         return (
-            <Container maxWidth='sm' style={{marginTop:'3rem' , border:'.5px solid #3F51B5'}}> 
-                <Box align='center'>
-                    <ButtonGroup>
-                        <Button onClick={this.showUnAnswQ} variant='contained' color='primary'>UnAnswered Question</Button>
-                        <Button onClick={this.showAnswQ} variant='contained' color='primary'>Answered Question</Button>
-                    </ButtonGroup>
-                </Box>
-                    {showUnAnsw === true ?
-                    
-                        unAnswQuestion.map((id)=>(
+            <Container maxWidth='sm' style={{marginTop:'4rem', border:'4px solid #f1f1f1', borderRadius:'2px', padding:'0'}}> 
+                    <Paper  square >
+                        <Tabs  
+                            value={value}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            onChange={this.handleChange}
+                            aria-label="disabled tabs example"
+                        >
+                            <Tab icon={<LiveHelpIcon />} style={{width:'100%'}} label="UnAnswered Question" />
+                            <Tab icon={<QuestionAnswerIcon />} style={{width:'100%'}} label="Answered Question" />
+                        </Tabs>
+                    </Paper>
+                    <Container style={{padding:'2rem'}}>
+                        { showUnAnsw === true 
+
+                            ? unAnswQuestion.map((id)=>(
+                                <div key={id}>
+                                    <UnAnswQuestion questionID={this.props.questionID} id={id}/>
+                                </div> ))
+                            :
+                            answQuestion.map((id)=>(
                             <div key={id}>
-                                <UnAnswQuestion questionID={this.props.questionID} id={id}/>
+                                <AnsweredQuestion questionID={this.props.questionID} id={id}/>
                             </div> ))
-                    :
-                        answQuestion.map((id)=>(
-                        <div key={id}>
-                            <AnswQuestion questionID={this.props.questionID} id={id}/>
-                        </div> ))
-                    }
-   
+                        }
+                    </Container>
             </Container>
         )
     }

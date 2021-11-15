@@ -1,9 +1,15 @@
-import React, { Component } from 'react'
-import {  NavLink  } from 'react-router-dom'
-import { makeStyles ,createStyles , Theme} from '@material-ui/core/styles'
-import { AppBar ,Toolbar, Button , Typography ,ButtonGroup, Container ,Grid} from '@material-ui/core';
-
-
+import React from 'react'
+import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser'
+import {  NavLink , useNavigate } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import Button from '@material-ui/core/Button'
+import Avatar from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles({
   nav: {
@@ -15,52 +21,72 @@ const useStyles = makeStyles({
   link: {
     color:'white'
   },
+  signOut:{
+    display:'flex',
+    alignItems:'center',
+    justifyContent:'space-between'
+  }
    
 });
 
-export default function ButtonAppBar() {
+function Navigation(props) {
+
   const classes = useStyles();
+  const navigate = useNavigate()
+  const {authedUser, users, dispatch} = props
+
+  const signOut = ()=> {
+    dispatch(setAuthedUser(null))
+    navigate('/')
+  }
 
   return (
     <div>
       <AppBar className={classes.nav} position="static">
         <Toolbar>
-
-            <Grid container >
-                <Grid  item  sm={3} align='left' >
-                    <Typography variant="h5">
-                        Would You Rather 
-                    </Typography>
-                </Grid>
-
-                <Grid item   sm={6} align='center'>
-                    <ButtonGroup variant="contained"  color='primary' aria-label="contained primary button group">
-                        <Button  className={classes.primaryNav}><NavLink to='/' className={classes.link}>Home</NavLink></Button>
-                        <Button  className={classes.primaryNav}><NavLink to='/addquestion' className={classes.link}>New Question</NavLink></Button>
-                        <Button  className={classes.primaryNav}><NavLink to='/leaderboard' className={classes.link}>Leaderboard</NavLink></Button>
-                    </ButtonGroup>
-                </Grid>
-
-                <Grid item  sm={3} align='right'>
-                    <Button className={classes.signIn} variant='contained' ><NavLink to='/signin' style={{color:'black'}}>Login</NavLink></Button>
-                </Grid>
-
+          <Grid container >
+            <Grid  item xs={3} align='left' >
+                <Typography variant="h5" style={{fontFamily:' Praise, cursive '}}>
+                    Would You Rather 
+                </Typography>
             </Grid>
+
+            <Grid item xs={6} align='center'>
+                <ButtonGroup variant="contained"  color='primary' aria-label="contained primary button group">
+                    <NavLink to='/' className={classes.link}>
+                      <Button style={{color:'white'}}>Home</Button>
+                    </NavLink>
+
+                    <NavLink to='/addquestion' className={classes.link}>
+                      <Button style={{color:'white'}}>New Question</Button>
+                    </NavLink>
+                    
+                    <NavLink to='/leaderboard' className={classes.link}>
+                      <Button style={{color:'white'}}>Leaderboard</Button>
+                    </NavLink>
+                </ButtonGroup>
+            </Grid>
+            {authedUser 
+              ? 
+              <Grid className={classes.signOut} item xs={3} align='right'>
+                  <Typography variant="body1" component='p' style={{fontSize:'12px'}} >Hello, {users[authedUser].name}</Typography>
+                  <Avatar alt={users[authedUser].name} src={users[authedUser].avatarURL}/>
+                  <Button variant='contained' size='small' onClick={signOut} style={{fontSize:'12px'}} ><NavLink to='/signin' style={{color:'black'}}>Logout</NavLink></Button>
+              </Grid>
+              
+              : ''}
+
+          </Grid>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+function mapStateToprop({authedUser, users}){
+  return {
+    authedUser,
+    users
+  }
+}
 
-
-    // <nav className='nav'>
-    //             <h1><NavLink to='/'className='logo' style={{fontSize:18}}>WouldYouRather</NavLink></h1>
-    //                 <div className='navbar_left'>
-    //                     <button className='btnn'><NavLink className='nav-link' to='/signin' > Home</NavLink> </button>
-    //                     <button className='btnn'><NavLink className='nav-link' to='/newquestion' >New Question</NavLink> </button>
-    //                     <button className='btnn'><NavLink className='nav-link' to='/leaderboard' > Leaderboard</NavLink></button>
-    //                 </div>
-    //                 <div className="navbar_right">            
-    //                     <button className='btnn'><NavLink className='nav-link' to='/signin'>LogIn</NavLink></button>
-    //                 </div>   
-    //             </nav> 
+export default connect(mapStateToprop)(Navigation)

@@ -51,7 +51,7 @@ export function saveQuestion (optionOneText, optionTwoText, author){
         return handleSaveQuestion({optionOneText , optionTwoText , author})
             .then((question)=>{
                 dispatch(saveQuestionAction(question))
-                dispatch(showLoading())
+                dispatch(hideLoading())
             })
     }
 }

@@ -1,8 +1,10 @@
+
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'none' ,
+    avatarURL: 'https://cdn-icons-png.flaticon.com/256/3135/3135789.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +16,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL:'none' ,
+    avatarURL:'https://cdn-icons-png.flaticon.com/256/236/236831.png' ,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
   
@@ -24,7 +26,7 @@ let users = {
   khaledfarghly: {
     id: 'khaledfarghly',
     name: 'Khaled Farghly',
-    avatarURL:'none' ,
+    avatarURL:'https://cdn-icons-png.flaticon.com/256/3135/3135715.png' ,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
-import Container from '@material-ui/core/Container'
 import WhereToVoteIcon from '@material-ui/icons/WhereToVote'
 import Avatar  from '@material-ui/core/Avatar'
 import { makeStyles } from '@material-ui/core/styles'
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme)=> ({
         margin:'1rem 0'
     },
 }))
-function UnAnswQuestion (props){
+function AnsweredQuestion (props){
         const classes = useStyles()
 
         const {question , users} = props
@@ -69,8 +68,8 @@ function UnAnswQuestion (props){
                         <Typography variant='body1' component='p' paragraph>{`${optionOne.text}`}</Typography>
                         <Typography variant='body1' component='p' paragraph>Or...</Typography>
                     
-                        <Link to={`/unansweredquestion/${id}`} >
-                            <Button onClick={()=> props.questionID(id)} variant='outlined' color='primary' endIcon={<WhereToVoteIcon />}>View And Vote</Button>
+                        <Link to={`/answeredquestion/${id}`} >
+                            <Button onClick={()=> props.questionID(id)} variant='outlined' color='primary' endIcon={<WhereToVoteIcon />}>View polls</Button>
                         </Link>
                     </Box>
                 </Box>
@@ -85,4 +84,4 @@ function mapStateToProps ({questions, users} , {id}) {
        users,
     }
 }
-export default connect(mapStateToProps)(UnAnswQuestion)
+export default connect(mapStateToProps)(AnsweredQuestion)

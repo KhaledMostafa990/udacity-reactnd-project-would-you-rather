@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import {Routes , Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import { createTheme, ThemeProvider } from '@material-ui/styles'
 import Navigation from './Navigation'
 import SignIn from './SignIn'
 import Dashboard from './Dashboard'
@@ -9,7 +10,9 @@ import LoadingBar from 'react-redux-loading'
 import QuestionsPage from './QuestionsPage'
 import AnsweredQuestionsPage from './AnsweredQuestionsPage'
 import AddQuestion  from './AddQuestion'
+// const theme = createMuiTheme({
 
+// })
 
 class App extends Component {
 
@@ -32,8 +35,7 @@ class App extends Component {
         <div>
           <LoadingBar />  
           <Navigation />
-          <div>
-
+          
                   <Routes>         
                     {authedUser === null  ? (
                       <Fragment>
@@ -59,8 +61,7 @@ class App extends Component {
                           />
                       </Fragment>
                     )}          
-                  </Routes>                          
-          </div>
+                  </Routes>                            
         </div>
     
     )
