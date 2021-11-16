@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import WhereToVoteIcon from '@material-ui/icons/WhereToVote'
 import Avatar  from '@material-ui/core/Avatar'
-import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme)=> ({
     container:{
         hieght:'100%',
         border:'2px solid #c1c1c1',
-        borderRadius:'.6rem',
+        borderRadius:'.6rem', 
         display:'flex',
         flexDirection:'column',
         marginBottom:'2rem'
@@ -47,21 +48,20 @@ const useStyles = makeStyles((theme)=> ({
         margin:'1rem 0'
     },
 }))
-function AnsweredQuestion (props){
+function Questions (props){
         const classes = useStyles()
 
         const {question , users} = props
         const {author , optionOne , id} = question
 
         return (
-            <Box  className={classes.container} fullWidth> 
+            <Box  className={classes.container}> 
                 <Box className={classes.header}>
                     <Avatar alt='User Image' src={users[author].avatarURL} style={{marginRight:'1rem'}} />
                     <Typography  variant='body1' component='p' >{`${users[author].name} asks`}</Typography>
                 </Box>
 
                 <Box className={classes.questionContainer} >
-
                     <Box>
                         <Avatar className={classes.large} alt='User Image' src={users[author].avatarURL} />
                     </Box>
@@ -75,9 +75,10 @@ function AnsweredQuestion (props){
 
                         <Typography variant='body1' component='p' paragraph>{`${optionOne.text}`}</Typography>
                         <Typography variant='body1' component='p' paragraph>Or...</Typography>
-                    
-                        <Link to={`/answeredquestion/${id}`} >
-                            <Button onClick={()=> props.questionID(id)} variant='outlined' color='primary' endIcon={<WhereToVoteIcon />}>View polls</Button>
+                     
+                        <Link to={`${props.route + id}`}>
+                            <Button onClick={()=> props.questionID(id)} variant='contained' color='primary'
+                                endIcon={<WhereToVoteIcon />}>{props.btn}</Button>
                         </Link>
                     </Box>
                 </Box>
@@ -92,4 +93,4 @@ function mapStateToProps ({questions, users} , {id}) {
        users,
     }
 }
-export default connect(mapStateToProps)(AnsweredQuestion)
+export default connect(mapStateToProps)(Questions)

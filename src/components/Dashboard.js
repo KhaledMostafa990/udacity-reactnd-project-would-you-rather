@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import UnAnswQuestion from './UnAnswQuestion'
-import AnsweredQuestion from './AnsweredQuestion'
+import Questions from './questions/Questions'
 import Container  from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -16,6 +12,9 @@ class Dashboard extends Component {
     state ={
         value:0,
         showUnAnsw:true,
+        answeredRoute:`/answeredquestion/`,
+        unAnsweredRoute:`/unansweredquestion/`,
+
     }
     componentDidMount(){
         this.setState({
@@ -40,12 +39,12 @@ class Dashboard extends Component {
 
     render() {
         const { unAnswQuestion , answQuestion } = this.props
-        const { showUnAnsw, value} = this.state
+        const {answeredRoute, unAnsweredRoute , showUnAnsw, value} = this.state
         
         return (
             <Container maxWidth='sm' style={{marginTop:'4rem', border:'2px solid #c1c1c1', borderRadius:'.3rem', padding:'0'}}> 
-                    <Paper  square >
-                        <Tabs  
+                    <Paper justifyContent='space-between' square >
+                        <Tabs centered
                             value={value}
                             indicatorColor="primary"
                             textColor="primary"
@@ -59,16 +58,15 @@ class Dashboard extends Component {
                     
                     <Container style={{padding:'2rem'}}>
                         { showUnAnsw === true 
-
                             ? unAnswQuestion.map((id)=>(
                                 <div key={id}>
-                                    <UnAnswQuestion questionID={this.props.questionID} id={id}/>
+                                    <Questions route={unAnsweredRoute} questionID={this.props.questionID} id={id} btn={'View And Vote'}/>
                                 </div> ))
                             :
                             answQuestion.map((id)=>(
-                            <div key={id}>
-                                <AnsweredQuestion questionID={this.props.questionID} id={id}/>
-                            </div> ))
+                                <div key={id}>
+                                    <Questions route={answeredRoute} questionID={this.props.questionID} id={id} btn={'View votes'}/>
+                                </div> ))
                         }
                     </Container>
             </Container>

@@ -57,11 +57,11 @@ function Navigation(props) {
                       <Button style={{color:'white'}}>Home</Button>
                     </NavLink>
 
-                    <NavLink to='/addquestion' className={classes.link}>
+                    <NavLink to={authedUser ? '/addquestion' : '/'} className={classes.link}>
                       <Button style={{color:'white'}}>New Question</Button>
                     </NavLink>
                     
-                    <NavLink to='/leaderboard' className={classes.link}>
+                    <NavLink to={authedUser ? '/leaderboard' : '/'} className={classes.link}>
                       <Button style={{color:'white'}}>Leaderboard</Button>
                     </NavLink>
                 </ButtonGroup>
@@ -74,7 +74,7 @@ function Navigation(props) {
                   <Button variant='contained' size='small' onClick={signOut} style={{fontSize:'12px'}} ><NavLink to='/signin' style={{color:'black'}}>Logout</NavLink></Button>
               </Grid>
               
-              : ''}
+              : null}
 
           </Grid>
         </Toolbar>

@@ -1,15 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import {Routes , Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
+import { handleInitialData } from './actions/shared'
 import { createTheme, ThemeProvider } from '@material-ui/styles'
-import Navigation from './Navigation'
-import SignIn from './SignIn'
-import Dashboard from './Dashboard'
+import Navigation from './components/Navigation'
+import SignIn from './components/SignIn'
+import Dashboard from './components/Dashboard'
 import LoadingBar from 'react-redux-loading'
-import QuestionsPage from './QuestionsPage'
-import AnsweredQuestionsPage from './AnsweredQuestionsPage'
-import AddQuestion  from './AddQuestion'
+import UnAnswQuestionsPage from './components/questions/UnAnswQuestionsPage'
+import AnswQuestionsPage from './components/questions/AnswQuestionsPage'
+import AddQuestion  from './components/questions/AddQuestion'
+import NotFound from './components/NotFound'
+import LeaderBoard from './components/LeaderBoard'
+
 // const theme = createMuiTheme({
 
 // })
@@ -40,24 +43,23 @@ class App extends Component {
                     {authedUser === null  ? (
                       <Fragment>
                         <Route path='/' element={ <SignIn />} /> 
-                        <Route path='*' element={
-                              <main style={{  display:'flex', justifyContent:'cnter', alignItems:'center' }}>
-                                <h1> Page Not Found! </h1>
-                              </main>
-                            }
+                        
+                        <Route path='*' 
+                        element={ <NotFound /> }
                           />
                       </Fragment>
                     ) : (
+
                       <Fragment>
                         <Route path='/' element={ <Dashboard questionID={this.questionID} /> } />
-                        <Route path='/unansweredquestion/:id' element={ <QuestionsPage id={this.state.questionID}/> } />
-                        <Route path='/answeredquestion/:id' element={ <AnsweredQuestionsPage id={this.state.questionID}/> } />
+                        {/* We can show the questions components in one route but I think the following better*/}
+                        <Route path='/unansweredquestion/:id' element={ <UnAnswQuestionsPage id={this.state.questionID}/> } />
+                        <Route path='/answeredquestion/:id' element={ <AnswQuestionsPage id={this.state.questionID}/> } />
                         <Route path='/addquestion' element={<AddQuestion id={this.state.questionID} />} />
-                        <Route path='*' element={
-                              <main style={{ display:'flex', justifyContent:'cnter', alignItems:'center' }}>
-                                <h1> Page Not Found! </h1>
-                              </main>
-                            }
+                        <Route path='/leaderboard' element={<LeaderBoard />} />
+                        
+                        <Route path='*' 
+                        element={ <NotFound /> }
                           />
                       </Fragment>
                     )}          

@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
 import { connect } from 'react-redux'
 import { makeStyles ,createStyles , Theme} from '@material-ui/core/styles'
-import { saveQuestion } from '../actions/shared'
+import { saveQuestion } from '../../actions/shared'
 import { useNavigate } from 'react-router'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
