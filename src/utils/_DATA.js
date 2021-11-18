@@ -1,10 +1,11 @@
-
-
+import Tyler from './tyler.png'
+import Khaled from './khaled.png'
+import Sarh from './sarh.png'
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://cdn-icons-png.flaticon.com/256/3135/3135789.png',
+    avatarURL: Sarh,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -16,7 +17,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL:'https://cdn-icons-png.flaticon.com/256/236/236831.png' ,
+    avatarURL:Tyler,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
   
@@ -26,7 +27,7 @@ let users = {
   khaledfarghly: {
     id: 'khaledfarghly',
     name: 'Khaled Farghly',
-    avatarURL:'https://cdn-icons-png.flaticon.com/256/3135/3135715.png' ,
+    avatarURL:Khaled,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

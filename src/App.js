@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import {Routes , Route } from 'react-router-dom'
+import {Routes , Route , Navigate} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
 import { createTheme, ThemeProvider } from '@material-ui/styles'
@@ -43,13 +43,12 @@ class App extends Component {
                     {authedUser === null  ? (
                       <Fragment>
                         <Route path='/' element={ <SignIn />} /> 
+                        <Route path='/addquestion' element={<Navigate to='/' /> } />
+                        <Route path='/leaderboard' element={<Navigate to='/' /> } />
                         
-                        <Route path='*' 
-                        element={ <NotFound /> }
-                          />
+                        <Route path='*'  element={ <NotFound /> } />
                       </Fragment>
                     ) : (
-
                       <Fragment>
                         <Route path='/' element={ <Dashboard questionID={this.questionID} /> } />
                         {/* We can show the questions components in one route but I think the following better*/}
@@ -58,9 +57,7 @@ class App extends Component {
                         <Route path='/addquestion' element={<AddQuestion id={this.state.questionID} />} />
                         <Route path='/leaderboard' element={<LeaderBoard />} />
                         
-                        <Route path='*' 
-                        element={ <NotFound /> }
-                          />
+                        <Route path='*' element={ <NotFound /> } />
                       </Fragment>
                     )}          
                   </Routes>                            

@@ -40,7 +40,7 @@ class Dashboard extends Component {
     render() {
         const { unAnswQuestion , answQuestion } = this.props
         const {answeredRoute, unAnsweredRoute , showUnAnsw, value} = this.state
-        
+        // console.log(unAnswQuestion.length)
         return (
             <Container maxWidth='sm' style={{marginTop:'4rem', border:'2px solid #c1c1c1', borderRadius:'.3rem', padding:'0'}}> 
                     <Paper justifyContent='space-between' square >
@@ -74,21 +74,22 @@ class Dashboard extends Component {
     }
 }
 
-function mapStateToProps ({questions , authedUser , users  }) {
+function mapStateToProps ({questions , authedUser , users}) {
 
     return {
         authedUser,
         questions,
         users,
+
         unAnswQuestion:
         Object.keys(questions).filter((id)=> (
-            !users[authedUser].answers.hasOwnProperty(id)
-        )),
+            !users[authedUser].answers[id]
+        )).sort((a,b) => questions[b].timestamp - questions[a].timestamp),
 
         answQuestion:
         Object.keys(questions).filter((id)=> (
-            users[authedUser].answers.hasOwnProperty(id)
-        ))
+            users[authedUser].answers[id]
+        )).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     }
  
 }
