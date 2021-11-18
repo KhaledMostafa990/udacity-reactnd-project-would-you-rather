@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Praise&display=swap");
 
 * {
   margin: 0;
@@ -10,7 +10,7 @@
   font-size: 62.5%;
 } */
 body {
-  max-width: 100%;
+  /* max-width: 100%; */
   font-family: "Roboto", "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

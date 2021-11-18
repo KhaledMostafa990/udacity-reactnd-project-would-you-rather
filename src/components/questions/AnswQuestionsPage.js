@@ -4,72 +4,28 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
 import Avatar  from '@material-ui/core/Avatar'
 import QuestionVotes from './QuestionVotes';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 
 const useStyles = makeStyles((theme)=> ({
-    root: {
-        flexGrow: 1,
-    },
-    container:{
-        border:'2px solid #c1c1c1',
-        borderRadius:'.6rem',
-        display:'flex',
-        flexDirection:'column',
-        marginTop:'4rem',
-    },
-    header:{
-        backgroundColor:'#f1f1f1',
-        borderRadius:'.6rem',
-        padding:'.4rem',
-        hieght:'5rem',
-        display:'flex',
-        alignItems:'center'
-    },
-    questionContainer:{
-        height:'16rem',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'space-around',  
-    },
-    questionInfo:{
-        height:'100%',
-        display:"flex",
-        flexDirection:'column',
-        justifyContent:'space-around',
-        alignItems:'center',
-    },
-    question:{
-        textAlign:'center',
-        width:'16rem',
-        position:'relative'
-    },
-    hr:{
-        display:'block',
-        height:'6rem',
-        border:'.1px solid #c1c1c1',
-        padding:'0 -4rem'
-    },
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
         margin:'1rem 0'
-    },
+    }, 
     voteState:{
-        position: 'absolute',
-        boxShadow:'.1rem .2rem .6rem #c9c9c9',
-        border: '.1rem solid #f1f1f1',
         borderRadius:' 0.5rem',
+        boxShadow:'-.2rem -.2rem .6rem #c1c1c1',
+        position: 'absolute',
         width: '100%',
         height: '100%',
         top: '0rem'
     },
     voteIcon:{
         position:'absolute',
-        right:'-.5rem',
-        top:'-.5rem',
+        right:'-.7rem',
+        top:'-.7rem',
     }
 }))
 function AnswQuestionsPage (props){
@@ -82,43 +38,48 @@ function AnswQuestionsPage (props){
         }, 1500);
         
         return (
-            <Container maxWidth='sm' >
-            <Box  className={classes.container}> 
-                <Box className={classes.header}>
+
+            <Box    mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+                    borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
+
+                {/* { Header } */}
+                <Box style={{backgroundColor:'#e9e9e9', borderRadius:'.4rem'}} p={1}  display='flex' alignItems='center'>
                     <Avatar alt='User Image' src={users[author].avatarURL} style={{marginRight:'1rem'}} />
                     <Typography  variant='body1' component='p' >{`${users[author].name} asked`}</Typography>
                 </Box>
 
-                <Box className={classes.questionContainer} >
+                <Box display='flex' alignItems='center' justifyContent='space-around' >
+
                     {/*Avatar*/}
                     <Box>
                         <Avatar className={classes.large} alt='User Image' src={users[author].avatarURL} />
                     </Box>
 
-                    <Box>
-                        <Typography variant='body1' component='span' className={classes.hr}></Typography>
-                    </Box>
-                    
-                    {/*Qustion*/}
-                    <Box className={classes.questionInfo} p={2}> 
+                    <Box  style={{height:'6rem' , border:'.1px solid #e1e1e1',}}></Box>
+
+                    {/*Qustion info*/}
+                    <Box  height='15rem' display='flex' flexDirection='column' justifyContent='space-around' alignItems='center'   p={2}> 
 
                         <Typography variant='h4' component='h4' >Results</Typography>
 
-                        <Box className={classes.question}>
+                        {/* {Question Votes detailes} */}
+                        <Box style={{border:'.1rem solid #f1f1f1' }} borderRadius=' 0.5rem' position='relative' width='18.5rem' textAlign='center'>
+                            
                             <QuestionVotes id={id} optionText={`${optionOne.text}?`} optionVotes={optionOne.votes.length}/>
-                                
+
+                            {/* {Question Vote state} */}
                             {users[authedUser].answers[id] === 'optionOne' 
-                                ?   <Box className={classes.voteState} >
+                                ?   <Box className={classes.voteState}  >
                                         <Box className={classes.voteIcon} > <VerifiedUserIcon/> </Box>
                                     </Box>
                                 : null }                                        
                         </Box>
 
-                        <Box className={classes.question}>
+                        <Box    style={{border:'.1rem solid #f1f1f1' }} borderRadius=' 0.5rem' position='relative' width='18.5rem' textAlign='center'>
                             <QuestionVotes id={id} optionText={`${optionTwo.text}?`} optionVotes={optionTwo.votes.length}/>
 
                             {users[authedUser].answers[id] === 'optionTwo' 
-                                ?   <Box className={classes.voteState} >
+                                ?   <Box className={classes.voteState}  >
                                         <Box className={classes.voteIcon} > <VerifiedUserIcon/> </Box>
                                     </Box>
                                 : null }
@@ -126,7 +87,7 @@ function AnswQuestionsPage (props){
                     </Box>
                 </Box>
             </Box>
-            </Container>
+           
         )
 }
 function mapStateToProps ({questions, users, authedUser} , {id}) {

@@ -4,21 +4,9 @@ import {makeStyles} from '@material-ui/core/styles'
 
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
 import Avatar  from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles((theme)=> ({
-    root: {
-        flexGrow: 1,
-    },
-    container:{
-        border:'.2rem solid #c1c1c1',
-        borderRadius:'.6rem',
-        display:'flex',
-        flexDirection:'column',
-        marginTop:'4rem',
-        height:'100%'
-    },
     header:{
         backgroundColor:'#f1f1f1',
         borderRadius:'.6rem',
@@ -28,14 +16,7 @@ const useStyles = makeStyles((theme)=> ({
         alignItems:'center'
     },
     questionContainer:{
-        height:'10rem',
-        border:'.2rem solid #c1c1c1',
-        borderTop:'2rem solid #c1c1c1',
-        borderRadius:'1.2rem',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'space-around',  
-        margin:'1.5rem'
+        borderTop:'2rem solid #c1c1c1', 
     },
     questionInfo:{
         height:'80%',
@@ -95,68 +76,63 @@ function LeaderBoard (props) {
 
     return (
         
-        <Container maxWidth='sm' >
-            <Box  className={classes.container}> 
+        <Box mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+                borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
 
-                {usersId.sort( (a,b) => (length.questions(b)+length.answers(b)) - (length.answers(a)+length.questions(a))).map((id) => (
-                <Box key={id}  >
-                    <Box>
-                        
-                    </Box>
-                    <Box className={classes.questionContainer}>
-                        {/*Avatar*/}
-                        <Box>
-                            <Avatar className={classes.large} alt='User Image' src={users[id].avatarURL} />
-                        </Box>
-                        
-                        {/*Qustions Details*/}
-                        <Box className={classes.questionInfo} p={2}> 
-                            <Typography  variant='h5' component='h5' >{`${users[id].name}`}</Typography>
-
-                            <Box className={classes.questionsDetails}>
-                                    Answered Questions 
-                                    <h4 style={{float:'right'}}>
-                                        { `${length.answers(id)}` }
-                                    </h4>
-                            </Box>
-
-                            <Box className={classes.questionsDetails}>
-                                    Current Questions 
-                                    <h4 style={{float:'right'}}>
-                                        {` ${length.questions(id) } `}
-                                    </h4>
-                            </Box>                        
-
-                        </Box>
-
-                        {/** Score  */}
-                        <Box className={classes.questionScore}>
-                                <Typography  variant='body1' component='h6' >Score</Typography>
-                                <Avatar alt='User Image'  >
-                                    {length.answers(id) + length.questions(id)}
-                                </Avatar>
-                        </Box>
-
-                    </Box>
+            { usersId.sort( (a,b) => (length.questions(b)+length.answers(b)) - (length.answers(a)+length.questions(a))).map((id) => (
+            <Box key={id}  >
+                <Box>
+                    
                 </Box>
+                <Box style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}} height='10rem' display='flex' alignItems='center' borderRadius='1.2rem' justifyContent='space-around' m={'1rem'}>
+                    {/*Avatar*/}
+                    <Box>
+                        <Avatar className={classes.large} alt='User Image' src={users[id].avatarURL} />
+                    </Box>
+                    
+                    {/*Qustions Details*/}
+                    <Box className={classes.questionInfo} p={2}> 
+                        <Typography  variant='h5' component='h5' >{`${users[id].name}`}</Typography>
 
-                ))}
-                
+                        <Box className={classes.questionsDetails}>
+                                Answered Questions 
+                                <h4 style={{float:'right'}}>
+                                    { `${length.answers(id)}` }
+                                </h4>
+                        </Box>
+
+                        <Box className={classes.questionsDetails}>
+                                Current Questions 
+                                <h4 style={{float:'right'}}>
+                                    {` ${length.questions(id) } `}
+                                </h4>
+                        </Box>                        
+
+                    </Box>
+
+                    {/** Score  */}
+                    <Box className={classes.questionScore}>
+                            <Typography  variant='body1' component='h6' >Score</Typography>
+                            <Avatar alt='User Image'  >
+                                {length.answers(id) + length.questions(id)}
+                            </Avatar>
+                    </Box>
+
+                </Box>
             </Box>
-        </Container>
+
+            ))}
+                
+        </Box>
+
     )
 }
 
 function mapStateToProps ({questions, users, authedUser}) {
     const usersId = Object.keys(users).map((user) => user)
-    const usersID = Object.values(users).map((user) => user)
     const questionsId = Object.keys(questions).map((id) => id)
-
    
-
         // console.log( usersID.sort( (a,b) =>  b.questions.length - a.questions.length ))
-
-  
 
     return {
         authedUser,

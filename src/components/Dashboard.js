@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import Questions from './questions/Questions'
-import Container  from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -9,6 +10,10 @@ import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 
 class Dashboard extends Component {
+    /** Dshboard
+     * - Getting the Answ Q and UnAbsw Q from redux store and showing them in order by the recently added
+     * - UnAnsw Q appearing by default and navigating between them depending on user clicks on taps
+     */
     state ={
         value:0,
         showUnAnsw:true,
@@ -42,8 +47,10 @@ class Dashboard extends Component {
         const {answeredRoute, unAnsweredRoute , showUnAnsw, value} = this.state
         // console.log(unAnswQuestion.length)
         return (
-            <Container maxWidth='sm' style={{marginTop:'4rem', border:'2px solid #c1c1c1', borderRadius:'.3rem', padding:'0'}}> 
-                    <Paper justifyContent='space-between' square >
+            <Box style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}}  borderRadius='.2rem' mr={'15%'} ml={'25%'}  mt={'5%'} > 
+
+                    {/* { Tabs } */}
+                    <Paper square >
                         <Tabs centered
                             value={value}
                             indicatorColor="primary"
@@ -55,8 +62,9 @@ class Dashboard extends Component {
                             <Tab icon={<QuestionAnswerIcon />} style={{width:'100%'}} label="Answered Question" />
                         </Tabs>
                     </Paper>
-                    
-                    <Container style={{padding:'2rem'}}>
+
+                    {/* { Questions } */}
+                    <Box p={'2rem'}>
                         { showUnAnsw === true 
                             ? unAnswQuestion.map((id)=>(
                                 <div key={id}>
@@ -68,8 +76,8 @@ class Dashboard extends Component {
                                     <Questions route={answeredRoute} questionID={this.props.questionID} id={id} btn={'View votes'}/>
                                 </div> ))
                         }
-                    </Container>
-            </Container>
+                    </Box>
+            </Box>
         )
     }
 }

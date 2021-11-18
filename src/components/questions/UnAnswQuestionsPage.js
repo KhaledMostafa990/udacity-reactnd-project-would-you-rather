@@ -11,49 +11,10 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Button from '@material-ui/core/Button'
-import Container from '@material-ui/core/Container'
 import Avatar from '@material-ui/core/Avatar'
-
+import FormLabel from '@material-ui/core/FormLabel'
 
 const useStyles = makeStyles((theme)=> ({
-    container:{
-        border:'2px solid #c1c1c1',
-        borderRadius:'.6rem',
-        display:'flex',
-        flexDirection:'column',
-        marginTop:'4rem',
-
-    },
-    header:{
-        backgroundColor:'#f1f1f1',
-        borderRadius:'.6rem',
-        padding:'.4rem',
-        hieght:'5rem',
-        display:'flex',
-        alignItems:'center'
-    },
-    questionContainer:{
-        height:'16rem',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'space-around',  
-    },
-    questionInfo:{
-        height:'100%',
-        display:"flex",
-        flexDirection:'column',
-        justifyContent:'space-around',
-        alignItems:'center',
-    },
-    question:{
-        width:'100%'
-    },
-    hr:{
-        display:'block',
-        height:'6rem',
-        border:'.1px solid #c1c1c1',
-        padding:'0 -4rem'
-    },
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
@@ -63,9 +24,8 @@ const useStyles = makeStyles((theme)=> ({
 function UnAnswQuestionsPage (props) {
     const classes = useStyles()
 
-    // use navigate is the v6 update for useHistory in reactRouter
     const navigate = useNavigate()    
-    const [answer, setAnswer] = useState()
+    const [answer, setAnswer] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -82,47 +42,43 @@ function UnAnswQuestionsPage (props) {
     const { author, optionOne ,optionTwo} = question
     
         return (
-            <Container maxWidth='sm' > 
+        
 
-            <Box  className={classes.container}> 
-                <Box className={classes.header}>
+            <Box     mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+                    borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
+
+                {/* { Header } */}
+                <Box style={{backgroundColor:'#e9e9e9', borderRadius:'.4rem'}} p={1}  display='flex' alignItems='center'>
                     <Avatar alt='User Image' src={users[author].avatarURL} style={{marginRight:'1rem'}} />
                     <Typography  variant='body1' component='p' >{`${users[author].name} asked`}</Typography>
                 </Box>
 
-                <Box className={classes.questionContainer} >
-                    {/*Avatar*/}
-                    <Box>
-                        <Avatar className={classes.large} alt='User Image' src={users[author].avatarURL} />
-                    </Box>
+                <Box display='flex' alignItems='center' justifyContent='space-around'>
 
-                    <Box >
-                        <Typography variant='body1' component='span' className={classes.hr}></Typography>
-                    </Box>
+                    {/* { Avatar } */}
+                    <Box> <Avatar className={classes.large} alt='User Image' src={users[author].avatarURL} /> </Box>
                     
-                    {/*Qustion*/}
-                    <Box className={classes.questionInfo} p={2}> 
-                    <Box className={classes.question} >                    
+                    <Box  style={{height:'6rem' , border:'.1px solid #e1e1e1',}}></Box>
+                    
+                    {/* { Question } */}
+                    <Box height='12rem' display='flex' flexDirection='column' justifyContent='space-around' alignItems='center'  p={2}> 
 
-                            <Typography variant='h5' component='h5'  >Would You Rather</Typography>
+                        <Box  width='18.5rem' >                    
 
                             <form onSubmit={handleSubmit}> 
-                            <FormControl>
-                                <RadioGroup value={answer} onChange={(e)=> setAnswer(e.target.value)}>
-                                    <FormControlLabel control={<Radio value={`optionOne`}/>} label={`${optionOne.text} ?`} > </FormControlLabel>
-                                    <FormControlLabel control={<Radio value={`optionTwo`}/>} label={`${optionTwo.text} ?`} > </FormControlLabel>
+                            <FormControl  component="fieldset">
+                                <FormLabel style={{ fontSize:'1.6rem',marginBottom:'1rem'}} component="legend">Would You Rather</FormLabel>
+                                <RadioGroup  aria-label="gender" name="gender" value={answer} onChange={(e)=> setAnswer(e.target.value)}>
+                                    <FormControlLabel value={`${optionOne.text} ?`} control={<Radio value={`optionOne`}/>} label={`${optionOne.text} ?`} > </FormControlLabel>
+                                    <FormControlLabel value={`${optionOne.text} ?`} control={<Radio value={`optionTwo`}/>} label={`${optionTwo.text} ?`} > </FormControlLabel>
                                 </RadioGroup>
-                                <Button type='submit' variant='outlined' color='primary'>Submit</Button>
+                                <Button type='submit' variant='outlined' disabled={!answer} color='primary'>Submit</Button>
                             </FormControl>
                             </form>
-                        </Box>
-                        
+                        </Box>                        
                     </Box>
                 </Box>
-            </Box>
-                
-               
-            </Container>
+            </Box>                
         )
 }
 

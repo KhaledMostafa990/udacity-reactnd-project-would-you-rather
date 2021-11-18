@@ -1,34 +1,15 @@
 import React , {useState} from 'react'
 import { connect } from 'react-redux'
-import { makeStyles ,createStyles , Theme} from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { saveQuestion } from '../../actions/shared'
 import { useNavigate } from 'react-router'
-import Grid from '@material-ui/core/Grid'
+import Box  from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import Container  from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles({
-    container:{
-        hieght:'100%',
-        border:'2px solid #c1c1c1',
-        borderRadius:'.6rem',
-        display:'flex',
-        flexDirection:'column',
-        marginTop:'4rem'
-    },
-    hr:{
-    border:'1px solid #c1c1c1',
-    width:'100%',
-    margin:'1rem 0'
-    },
-    inputs:{
-        display:'flex',
-        flexDirection:'column',
-        alignItems:'center',
-        marginBottom:'2rem'
-    },
+
     input:{
         marginTop:'2rem',
         width:'100%'
@@ -55,38 +36,36 @@ function AddQuestion(props) {
     }
 
     return (
-        <Container maxWidth='sm' className={classes.container} >
+        <Box   mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}} 
+            borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}>
             
+                <Typography align='center' variant='h4' >Create New Question</Typography> 
+                <Box style={{border:'.1rem solid gray', width:'100%'}} m='1rem 0'></Box>
 
-                <Typography align='center' variant='h4' component='h5'>Create New Question</Typography>              
-                <Typography align='center' component='span' className={classes.hr}></Typography>
-
-                <Typography align='left' variant='h6' component='p'  gutterBottom>Would You rather...</Typography>              
+                <Typography align='left' variant='h6' gutterBottom>Would You rather...</Typography>              
 
                 <form onSubmit={addQuestion} >
-                <Grid className={classes.inputs}>
-                    <TextField onChange={(e)=> setoptionOne(e.target.value)} label="optionOne" size="small"
-                        id=""
-                        defaultValue=""
-                        variant="outlined"  
-                        required     
-                        className={classes.input}     
-                        />
+                    <Box display='flex' flexDirection='column' alignItems='center' mb='2rem'>
+                        <TextField onChange={(e)=> setoptionOne(e.target.value)} label="optionOne" size="small"
+                            id="optionOne"
+                            defaultValue=""
+                            variant="outlined"  
+                            required     
+                            className={classes.input}
+                            />
 
+                        <TextField onChange={(e)=> setoptionTwo(e.target.value)} label="optionTwo" size="small"
+                            id="optionTwo"
+                            defaultValue=""
+                            variant="outlined"
+                            required                              
+                            className={classes.input}
+                            />
 
-                    <TextField onChange={(e)=> setoptionTwo(e.target.value)} label="optionTwo" size="small"
-                        id=""
-                        defaultValue=""
-                        variant="outlined"
-                        required                              
-                        className={classes.input}
-                        />
-
-                    <Button type='submit' className={classes.btn} variant='contained' color='primary'>Create</Button>
-                </Grid>
-                </form>
-           
-        </Container>
+                        <Button type='submit' className={classes.btn} variant='contained' color='primary'>Create</Button>
+                    </Box>
+                </form>           
+        </Box>
     )
 }
 
