@@ -33,9 +33,9 @@ function AnswQuestionsPage (props){
 
         const {question , users, authedUser} = props
         const {author , optionOne , optionTwo , id} = question
-        setTimeout(() => {
-            console.log(users[authedUser].answers[id] === 'optionTwo')
-        }, 1500);
+        // setTimeout(() => {
+        //     console.log(users[authedUser].answers[id] === 'optionTwo')
+        // }, 1500);
         
         return (
 

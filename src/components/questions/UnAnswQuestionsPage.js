@@ -39,7 +39,7 @@ function UnAnswQuestionsPage (props) {
         if (answer !== null){
             console.log( authedUser , question.id, answer)
             dispatch(saveQustionAnswered({ authedUser, qid, answer }))
-            navigate(`/answeredquestion/${qid}`);
+            navigate(`/answered/${qid}`);
         } 
     }
     const {users , question } = props

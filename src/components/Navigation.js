@@ -31,7 +31,6 @@ function Navigation(props) {
 
   const signOut = ()=> {
     dispatch(setAuthedUser(null))
-    navigate('/')
   }
 
   return (
@@ -49,7 +48,7 @@ function Navigation(props) {
                       <Button style={{color:'white'}}>Home</Button>
                     </NavLink>
 
-                    <NavLink to={'/addquestion'} style={{color:'white'}}>
+                    <NavLink to={'/add'} style={{color:'white'}}>
                       <Button style={{color:'white'}}>New Question</Button>
                     </NavLink>
                     
@@ -62,8 +61,8 @@ function Navigation(props) {
                 ? <Grid className={classes.signOut} item xs={3} align='right'>
                     <Typography variant='h6' component='p' style={{fontSize:'12px'}} >Hello, {users[authedUser].name}</Typography>
                     <Avatar alt={users[authedUser].name} src={users[authedUser].avatarURL}/>
-                    <Button variant='contained' onClick={signOut} style={{fontSize:'12px'}} ><NavLink to='/' style={{color:'black'}}>Logout</NavLink></Button>
-                </Grid> : null }
+                    <Button variant='contained' onClick={signOut} style={{fontSize:'12px'}} >Logout</Button>
+                 </Grid> : null }
 
           </Grid>
         </Toolbar>
