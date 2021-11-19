@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
-import {  NavLink , useNavigate } from 'react-router-dom'
+import {  NavLink  } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 
 import AppBar from '@material-ui/core/AppBar'
@@ -25,8 +25,6 @@ function Navigation(props) {
 
   const classes = useStyles();
 
-  // use navigate is the v6 updateD for useHistory in reactRouter
-  const navigate = useNavigate()
   const {authedUser, users, dispatch} = props
 
   const signOut = ()=> {
