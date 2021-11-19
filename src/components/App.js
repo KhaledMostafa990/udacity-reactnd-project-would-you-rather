@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import {Routes , Route , Navigate} from 'react-router-dom'
+import {Routes , Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
@@ -51,8 +51,8 @@ class App extends Component {
                 {authedUser === null  ? (
                   <Fragment>
                     <Route path='/' element={ <SignIn />} /> 
-                    <Route path='/addquestion' element={<Navigate to='/' /> } />
-                    <Route path='/leaderboard' element={<Navigate to='/' /> } />
+                    <Route path='/addquestion' element={<SignIn /> } />
+                    <Route path='/leaderboard' element={<SignIn /> } />
                     
                     <Route path='*'  element={ <NotFound /> } />
                   </Fragment>
@@ -62,7 +62,7 @@ class App extends Component {
                     {/* We can show the questions components in one route but I think the following better*/}
                     <Route path='/unansweredquestion/:id' element={ <UnAnswQuestionsPage id={this.state.questionID}/> } />
                     <Route path='/answeredquestion/:id' element={ <AnswQuestionsPage id={this.state.questionID}/> } />
-                    <Route path='/addquestion' element={<AddQuestion id={this.state.questionID} />} />
+                    <Route path='/addquestion' element={<AddQuestion />} />
                     <Route path='/leaderboard' element={<LeaderBoard />} />
                     
                     <Route path='*' element={ <NotFound /> } />

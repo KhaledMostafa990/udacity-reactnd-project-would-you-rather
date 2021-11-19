@@ -20,6 +20,9 @@ const useStyles = makeStyles({
     }
 })
 function AddQuestion(props) {
+    /** AddQuestion
+     * - saveQuestion method is an action creator using handleSaveQuestion method to fromat new question and update the state by adding new question to signed-in user 
+     */
     const [optionOneText, setoptionOne] = useState()
     const [optionTwoText, setoptionTwo] = useState()
     const navigate = useNavigate()
@@ -36,11 +39,11 @@ function AddQuestion(props) {
     }
 
     return (
-        <Box   mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}} 
+        <Box   mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}} 
             borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}>
             
                 <Typography align='center' variant='h4' >Create New Question</Typography> 
-                <Box style={{border:'.1rem solid gray', width:'100%'}} m='1rem 0'></Box>
+                <Box style={{border:'.07rem solid #c9c9c9', width:'100%'}} m='1rem 0'></Box>
 
                 <Typography align='left' variant='h6' gutterBottom>Would You rather...</Typography>              
 
@@ -69,7 +72,7 @@ function AddQuestion(props) {
     )
 }
 
-function mapStateToProps({authedUser}, {id}) {
+function mapStateToProps({authedUser}) {
 
     return {
         authedUser,

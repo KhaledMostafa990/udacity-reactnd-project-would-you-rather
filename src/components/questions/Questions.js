@@ -11,10 +11,13 @@ import Avatar  from '@material-ui/core/Avatar'
 
 
 function Questions (props){
-        const classes = useStyles()
-
-        const {question , users} = props
-        const {author , optionOne , id} = question
+    /** Questions
+     * - Answ or UnAnsw questions pages appearing depending on question id that users clicked on
+     */
+    const classes = useStyles()
+    
+    const {question , users} = props
+    const {author , optionOne , id} = question
 
         return (
             <Box style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}  borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
@@ -32,7 +35,7 @@ function Questions (props){
                         <Avatar className={classes.large} alt='User Image' src={users[author].avatarURL} />
                     </Box>
 
-                    <Box  style={{height:'6rem' , border:'.1rem solid #e1e1e1',}}></Box>
+                    <Box  style={{height:'6rem' , border:'.07rem solid #e1e1e1',}}></Box>
 
                     {/* { Questions Info have a route name props to question page} */}
                     <Box width='18.5rem' height='10rem' display='flex' flexDirection='column' justifyContent='space-around' alignItems='center' p={2} >

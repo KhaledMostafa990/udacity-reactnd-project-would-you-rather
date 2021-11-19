@@ -47,7 +47,7 @@ class Dashboard extends Component {
         const {answeredRoute, unAnsweredRoute , showUnAnsw, value} = this.state
         // console.log(unAnswQuestion.length)
         return (
-            <Box style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}}  borderRadius='.2rem' mr={'15%'} ml={'25%'}  mt={'5%'} > 
+            <Box style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}}  borderRadius='.2rem' mr={'15%'} ml={'15%'}  mt={'5%'} > 
 
                     {/* { Tabs } */}
                     <Paper square >

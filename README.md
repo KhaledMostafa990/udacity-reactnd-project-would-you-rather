@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Would You Rather React redux App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my solution for the final assessment project for Udacity's React & Redux course ( the 2d project in the advanced Web Dev Nanodegree).
 
-## Available Scripts
+- Live demo : [Would you rather](https://udacity-reactnd-myreadsapp.netlify.app/)
+- Starter repo: [Starter code](https://github.com/udacity/reactnd-project-would-you-rather-starter)
 
-In the project directory, you can run:
+![home ScreenShot](./src/utils/screenshot.png)
 
-### `yarn start`
+- [Overview](#overview)
+- [Built with](#built-with)
+- [The project requirements](#the-project-requirements)
+- [What I learned](#what-I-learned)
+- [Acknowledgments](#acknowledgments)
+- [Author](#author)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The `_DATA.js` file represents a fake [Database.md](./data.md) and methods that let you access the users and questions data.
 
-### `yarn test`
+There are two types of objects stored in the database:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Users
+- Questions
 
-### `yarn build`
+The application requires only "npm install" and "npm start" to install and launch the project.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Material Ui
+- CSS flexbox
+- React js
+- React router 6
+- Redux
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## The project requirements
 
-### `yarn eject`
+Users should be able:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- To log in by select an exsisting user at home page, and see the Navigation bar with 3 buttons to navigate between "home" "Add Question" and "Leaderboard".
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- To see the unanswered Questions by default, and there are tabs to navigate between the answered and unanswered questions at the home page, related to which user is selected.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- To see the avatar for the signed-in user besides a button to log out at the navigation bar.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- To see every question in the unanswered and answered questions sections has the question author name and his avatar and first choice, and button to vote or see votes if you're in answered section.
 
-## Learn More
+- To Click "view and vote" button to see the question choices with question author, avatar, and button to vote on the question.
+  after voting, the user will navigate to the answered questions page, and see his vote, and other votes on the question from other users.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- To add new question in the database by click on add question at the navigation bar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- To see the users ordered by descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
-### Code Splitting
+## What I learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1- this project had solidify my understanding of React and Redux,
+by practicing to improve the predictability of the application’s state, establish strict rules for getting, listening, and updating the store(state); and identify what state should live inside of Redux and what state should live inside of React components, and I felt how the Redux make the state management much better than react alone.
 
-### Analyzing the Bundle Size
+2- I started using react hooks and get much better in manipulate data between components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3- I've implemented the most complex logic I've ever coded during the last six months when I started learning front end Dev; while destructuring data from the database using advanced Javascript methods like "filter", "map", "sort", " looping around object values and keys" and more!
 
-### Making a Progressive Web App
+4- I started learning the Material Ui library and use it for this project to give me some elements that helped me style components very well, and I'm looking forward to getting better at using it and improving the project to better design in the future.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Acknowledgments
 
-### Advanced Configuration
+- [W3school](https://www.w3schools.com/)
+- [MDN](https://developer.mozilla.org/en-US/)
+- [Udacity](https://www.udacity.com/)
+- [Egyfwd scholarship](https://egfwd.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author
 
-### Deployment
+### Khaled Farghly
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Github ](https://github.com/KhaledMostafa990)
+- [LinkedIn ](https://www.linkedin.com/in/khaled-farghly-056a57208/)

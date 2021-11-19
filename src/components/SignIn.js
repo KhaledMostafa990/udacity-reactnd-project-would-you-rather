@@ -39,7 +39,7 @@ function SignIn(props)  {
 
     }
         return (   
-            <Box borderRadius='.2rem' mr={'15%'} ml={'25%'}  mt={'5%'}  p={'2rem'} display='flex' flexDirection='column'  alignItems='center'  
+            <Box borderRadius='.2rem' mr={'15%'} ml={'15%'}  mt={'5%'}  p={'2rem'} display='flex' flexDirection='column'  alignItems='center'  
                 style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}} >
                     
                 {/* { Header } */}
@@ -47,7 +47,7 @@ function SignIn(props)  {
                 <Box>please sing in to continue</Box>
 
                 {/* { line and pic } */}
-                <Box style={{border:'.1rem solid gray', width:'100%'}} m='1rem 0'></Box>
+                <Box style={{border:'.07rem solid #c9c9c9', width:'100%'}} m='1rem 0'></Box>
                 <Avatar className={classes.large} alt='react-redux' src='https://miro.medium.com/max/600/1*i1yreXvK0kGrS9_uy5qKHQ.jpeg' />
 
                 {/* { Select To log in} */}

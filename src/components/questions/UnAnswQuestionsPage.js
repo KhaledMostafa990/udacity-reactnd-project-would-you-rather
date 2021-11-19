@@ -15,6 +15,7 @@ import Avatar from '@material-ui/core/Avatar'
 import FormLabel from '@material-ui/core/FormLabel'
 
 const useStyles = makeStyles((theme)=> ({
+    
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
@@ -22,6 +23,9 @@ const useStyles = makeStyles((theme)=> ({
     },
 }))
 function UnAnswQuestionsPage (props) {
+    /** UnAnswQuestionsPage
+     * - saveQustionAnswered method is an action creator using handleSaveAnswer method to saving signed-in user answer in the state 
+     */
     const classes = useStyles()
 
     const navigate = useNavigate()    
@@ -44,7 +48,7 @@ function UnAnswQuestionsPage (props) {
         return (
         
 
-            <Box     mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+            <Box     mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
                     borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
 
                 {/* { Header } */}

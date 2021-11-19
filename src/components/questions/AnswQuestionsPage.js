@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme)=> ({
     }, 
     voteState:{
         borderRadius:' 0.5rem',
-        boxShadow:'-.2rem -.2rem .6rem #c1c1c1',
+        boxShadow:'-.1rem -.1rem .6rem #c1c1c1',
         position: 'absolute',
         width: '100%',
         height: '100%',
@@ -39,7 +39,7 @@ function AnswQuestionsPage (props){
         
         return (
 
-            <Box    mr={'15%'} ml={'25%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+            <Box    mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
                     borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
 
                 {/* { Header } */}
