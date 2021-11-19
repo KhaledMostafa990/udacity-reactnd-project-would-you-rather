@@ -17,9 +17,6 @@ class Dashboard extends Component {
     state ={
         value:0,
         showUnAnsw:true,
-        answeredRoute:`/answered/`,
-        unAnsweredRoute:`/unanswered/`,
-
     }
     componentDidMount(){
         this.setState({
@@ -44,7 +41,7 @@ class Dashboard extends Component {
 
     render() {
         const { unAnswQuestion , answQuestion } = this.props
-        const {answeredRoute, unAnsweredRoute , showUnAnsw, value} = this.state
+        const { showUnAnsw, value} = this.state
         // console.log(unAnswQuestion.length)
         return (
             <>
@@ -69,12 +66,12 @@ class Dashboard extends Component {
                         { showUnAnsw === true 
                             ? unAnswQuestion.map((id)=>(
                                 <div key={id}>
-                                    <Questions route={unAnsweredRoute+id} questionID={this.props.questionID} id={id} btn={'View And Vote'}/>
+                                    <Questions route={`unanswered/`} questionID={this.props.questionID} id={id} btn={'View And Vote'}/>
                                 </div> ))
                             :
                             answQuestion.map((id)=>(
                                 <div key={id}>
-                                    <Questions route={answeredRoute+id} questionID={this.props.questionID} id={id} btn={'View votes'}/>
+                                    <Questions route={`answered/`} questionID={this.props.questionID} id={id} btn={'View votes'}/>
                                 </div> ))
                         }
                     </Box>

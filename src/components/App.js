@@ -51,20 +51,24 @@ class App extends Component {
                 {authedUser === null  ? (
                   <Fragment>
                     <Route path='/*' element={ <SignIn />} /> 
+                    
                     <Route path='*' element={ <NotFound /> } />
                   
                   </Fragment>
                 ) : (
                   <Fragment>
                     <Route path='/' element={ <Dashboard questionID={this.questionID} /> } />
-                    {/* We can show the questions components in one route but I think the following better*/}
                     <Route path='/add' element={<AddQuestion />} />
                     <Route path='/leaderboard' element={<LeaderBoard />} />
-                      <Fragment>
-                        <Route path='/answered/:id' element={ <AnswQuestionsPage id={this.state.questionID}/> } />
-                        <Route path='/unanswered/:id' element={ <UnAnswQuestionsPage id={this.state.questionID}/> } />
-                      </Fragment>
                     
+                    {this.state.questionID ?
+                    <Fragment>
+                      <Route path='/answered/:id' element={ <AnswQuestionsPage id={this.state.questionID}/> } />
+                      <Route path='/unanswered/:id' element={ <UnAnswQuestionsPage id={this.state.questionID}/> } />
+                    </Fragment>
+                  : null}
+                      
+
                   </Fragment>
                 )}          
                 <Route path='*' element={ <NotFound /> } />

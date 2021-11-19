@@ -45,7 +45,7 @@ function Questions (props){
                         <p>{`${optionOne.text}`}</p>
                         <p>or...</p>
                      
-                        <Link to={`${props.route}`}>
+                        <Link to={`${props.route +id }`}>
                             <Button onClick={()=> props.questionID(id)} variant='contained' color='primary'
                                 endIcon={<WhereToVoteIcon />}>{props.btn}</Button>
                         </Link>
