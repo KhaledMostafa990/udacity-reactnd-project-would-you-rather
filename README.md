@@ -2,7 +2,7 @@
 
 This is my solution for the final assessment project for Udacity's React & Redux course ( the 2d project in the advanced Web Dev Nanodegree).
 
-- Live demo : [Would you rather](https://udacity-reactnd-myreadsapp.netlify.app/)
+- Live demo : [Would you rather](https://wouldyourrather.netlify.app)
 - Starter repo: [Starter code](https://github.com/udacity/reactnd-project-would-you-rather-starter)
 
 ![home ScreenShot](./src/utils/screenshot.png)
@@ -72,7 +72,7 @@ by practicing to improve the predictability of the application’s state, establ
 
 ## Author
 
-### Khaled Farghly
+Development by : Khaled Farghly
 
 - [Github ](https://github.com/KhaledMostafa990)
 - [LinkedIn ](https://www.linkedin.com/in/khaled-farghly-056a57208/)

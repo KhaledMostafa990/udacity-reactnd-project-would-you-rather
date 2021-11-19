@@ -39,6 +39,7 @@ function SignIn(props)  {
 
     }
         return (   
+            <>
             <Box borderRadius='.2rem' mr={'15%'} ml={'15%'}  mt={'5%'}  p={'2rem'} display='flex' flexDirection='column'  alignItems='center'  
                 style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}} >
                     
@@ -75,7 +76,12 @@ function SignIn(props)  {
                         Login
                     </Button>
                 </FormControl>
+                
             </Box>
+            <Box style={{fontSize: 12, textAlign: 'center'}} position='relative' bottom='-5rem' right>
+                    Development by <a href="https://github.com/KhaledMostafa990" target="blank" >Khaled Farghly </a>.
+            </Box>
+            </>
         )
 }
 
