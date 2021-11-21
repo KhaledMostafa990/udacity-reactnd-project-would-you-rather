@@ -6,15 +6,93 @@
   border: 0;
   outline: 0;
 }
-/* html {
-  font-size: 62.5%;
-} */
+
 body {
-  /* max-width: 100%; */
+  /* font-size: 16px; */
   font-family: "Roboto", "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 a {
   text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .sign-in {
+    width: 70%;
+  }
+  .dashboard {
+    width: 70%;
+  }
+  .add-question {
+    width: 70%;
+  }
+  .leaderboard {
+    width: 70%;
+  }
+  .questions-page {
+    width: 70%;
+  }
+  .tabs {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 81.25%;
+  }
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .sign-in {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .dashboard {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .add-question {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .leaderboard {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .questions-page {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .tabs {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 62.5%;
+  }
+  .tabs {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 380px) {
+  html {
+    font-size: 60%;
+  }
 }

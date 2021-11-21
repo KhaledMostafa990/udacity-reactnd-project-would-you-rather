@@ -10,7 +10,15 @@ const useStyles = makeStyles((theme)=> ({
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
-        margin:'1rem 0'
+        margin:'1rem 0',
+        [theme.breakpoints.down(768)]:{
+            width: theme.spacing(12),
+            height: theme.spacing(12),
+        },
+        [theme.breakpoints.down(480)]:{
+            width: theme.spacing(9),
+            height: theme.spacing(9),
+        }
     },
 }))
 
@@ -42,7 +50,7 @@ function LeaderBoard (props) {
 
     return (
         <>
-        <Box mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+        <Box  className='leaderboard' mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
                 borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
 
             { usersId.sort( (a,b) => (length.questions(b)+length.answers(b)) - (length.answers(a)+length.questions(a))).map((id) => (

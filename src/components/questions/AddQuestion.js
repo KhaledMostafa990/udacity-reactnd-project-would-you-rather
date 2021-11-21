@@ -40,8 +40,8 @@ function AddQuestion(props) {
 
     return (
         <>
-        <Box   mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}} 
-            borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}>
+        <Box    className='add-question' style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}} 
+            borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2} mt={'5%'}  >
             
                 <Typography align='center' variant='h4' >Create New Question</Typography> 
                 <Box style={{border:'.07rem solid #c9c9c9', width:'100%'}} m='1rem 0'></Box>

@@ -68,7 +68,16 @@ const useStyles = makeStyles((theme)=> ({
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
-        margin:'1rem 0'
+        margin:'1rem 0',
+        [theme.breakpoints.down(768)]:{
+            width: theme.spacing(12),
+            height: theme.spacing(12),
+        },
+        [theme.breakpoints.down(480)]:{
+            width: theme.spacing(9),
+            height: theme.spacing(9),
+        }
     },
+    
 }))
 export default connect(mapStateToProps)(Questions)

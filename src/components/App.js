@@ -5,6 +5,8 @@ import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
+import Box from '@material-ui/core/Box'
+
 import Navigation from './Navigation'
 import SignIn from './SignIn'
 import Dashboard from './Dashboard'
@@ -47,32 +49,34 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <LoadingBar />  
           <Navigation />
-              <Routes>         
-                {authedUser === null  ? (
-                  <Fragment>
-                    <Route path='/*' element={ <SignIn />} /> 
-                    
-                    <Route path='*' element={ <NotFound /> } />
-                  
-                  </Fragment>
-                ) : (
-                  <Fragment>
-                    <Route path='/' element={ <Dashboard questionID={this.questionID} /> } />
-                    <Route path='/add' element={<AddQuestion />} />
-                    <Route path='/leaderboard' element={<LeaderBoard />} />
-                    
-                    {this.state.questionID ?
+              <Box  className='main-container'>
+                <Routes>         
+                  {authedUser === null  ? (
                     <Fragment>
-                      <Route path='/answered/:id' element={ <AnswQuestionsPage id={this.state.questionID}/> } />
-                      <Route path='/unanswered/:id' element={ <UnAnswQuestionsPage id={this.state.questionID}/> } />
-                    </Fragment>
-                  : null}
+                      <Route path='/*' element={ <SignIn />} /> 
                       
+                      <Route path='*' element={ <NotFound /> } />
+                    
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <Route path='/' element={ <Dashboard questionID={this.questionID} /> } />
+                      <Route path='/add' element={<AddQuestion />} />
+                      <Route path='/leaderboard' element={<LeaderBoard />} />
+                      
+                      {this.state.questionID ?
+                        <Fragment>
+                          <Route path='/answered/:id' element={ <AnswQuestionsPage id={this.state.questionID}/> } />
+                          <Route path='/unanswered/:id' element={ <UnAnswQuestionsPage id={this.state.questionID}/> } />
+                        </Fragment>
+                      : null}
+                        
 
-                  </Fragment>
-                )}          
-                <Route path='*' element={ <NotFound /> } />
-              </Routes>                            
+                    </Fragment>
+                  )}          
+                  <Route path='*' element={ <NotFound /> } />
+                </Routes> 
+              </Box>                           
         </ThemeProvider>
     
     )

@@ -45,19 +45,19 @@ class Dashboard extends Component {
         // console.log(unAnswQuestion.length)
         return (
             <>
-            <Box style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}}  borderRadius='.2rem' mr={'15%'} ml={'15%'}  mt={'5%'} > 
+            <Box className='dashboard' style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .6rem #e1e1e1'}} borderRadius='.2rem' mt={'5%'} > 
 
                     {/* { Tabs } */}
                     <Paper square >
-                        <Tabs centered
+                        <Tabs centered 
                             value={value}
                             indicatorColor="primary"
                             textColor="primary"
                             onChange={this.handleChange}
                             aria-label="disabled tabs example"
                         >
-                            <Tab icon={<LiveHelpIcon />} style={{width:'100%'}} label="UnAnswered Question" />
-                            <Tab icon={<QuestionAnswerIcon />} style={{width:'100%'}} label="Answered Question" />
+                            <Tab icon={<LiveHelpIcon />} className='tabs' label="UnAnswered Question" />
+                            <Tab icon={<QuestionAnswerIcon />} className='tabs' label="Answered Question" />
                         </Tabs>
                     </Paper>
 

@@ -12,8 +12,25 @@ const useStyles = makeStyles((theme)=> ({
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
-        margin:'1rem 0'
+        margin:'1rem 0',
+        [theme.breakpoints.down(768)]:{
+            width: theme.spacing(12),
+            height: theme.spacing(12),
+        },
+        [theme.breakpoints.down(480)]:{
+            width: theme.spacing(9),
+            height: theme.spacing(9),
+        }
     }, 
+    questions:{
+        width:'18.5rem',
+        [theme.breakpoints.down(900)]: {
+            width:'17rem'
+        },
+        [theme.breakpoints.down(700)]: {
+            width:'16rem'
+        }, 
+    },
     voteState:{
         borderRadius:' 0.5rem',
         boxShadow:'-.1rem -.1rem .6rem #c1c1c1',
@@ -36,7 +53,7 @@ function AnswQuestionsPage (props){
         
         return (
 
-            <Box    mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+            <Box    className='questions-page' mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
                     borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
 
                 {/* { Header } */}
@@ -60,7 +77,7 @@ function AnswQuestionsPage (props){
                         <Typography variant='h4' component='h4' >Results</Typography>
 
                         {/* {Question Votes detailes} */}
-                        <Box style={{border:'.1rem solid #f1f1f1' }} borderRadius=' 0.5rem' position='relative' width='18.5rem' textAlign='center'>
+                        <Box className={classes.questions}style={{border:'.1rem solid #f1f1f1' }} borderRadius=' 0.5rem' position='relative'  textAlign='center'>
                             
                             <QuestionVotes id={id} optionText={`${optionOne.text}?`} optionVotes={optionOne.votes.length}/>
 
@@ -72,7 +89,7 @@ function AnswQuestionsPage (props){
                                 : null }                                        
                         </Box>
 
-                        <Box    style={{border:'.1rem solid #f1f1f1' }} borderRadius=' 0.5rem' position='relative' width='18.5rem' textAlign='center'>
+                        <Box    className={classes.questions}style={{border:'.1rem solid #f1f1f1' }} borderRadius=' 0.5rem' position='relative'  textAlign='center'>
                             <QuestionVotes id={id} optionText={`${optionTwo.text}?`} optionVotes={optionTwo.votes.length}/>
 
                             {users[authedUser].answers[id] === 'optionTwo' 

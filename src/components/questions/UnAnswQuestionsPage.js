@@ -19,8 +19,26 @@ const useStyles = makeStyles((theme)=> ({
     large:{
         width: theme.spacing(15),
         height: theme.spacing(15),
-        margin:'1rem 0'
+        margin:'1rem 0',
+        [theme.breakpoints.down(768)]:{
+            width: theme.spacing(12),
+            height: theme.spacing(12),
+        },
+        [theme.breakpoints.down(480)]:{
+            width: theme.spacing(6),
+            height: theme.spacing(9),
+        }
     },
+    questions:{
+        width:'18.5rem',
+        [theme.breakpoints.down(900)]: {
+            width:'17rem'
+        },
+        [theme.breakpoints.down(700)]: {
+            width:'15rem'
+        }, 
+    },
+
 }))
 function UnAnswQuestionsPage (props) {
     /** UnAnswQuestionsPage
@@ -48,7 +66,7 @@ function UnAnswQuestionsPage (props) {
         return (
         
 
-            <Box     mr={'15%'} ml={'15%'}  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
+            <Box     className='questions-page'  mt={'5%'} style={{border:'.1rem solid #e1e1e1', boxShadow:'-.1rem -.1rem .4rem #e1e1e1'}}
                     borderRadius='.2rem' display='flex' flexDirection='column' p={.5} mb={2}> 
 
                 {/* { Header } */}
@@ -67,7 +85,7 @@ function UnAnswQuestionsPage (props) {
                     {/* { Question } */}
                     <Box height='12rem' display='flex' flexDirection='column' justifyContent='space-around' alignItems='center'  p={2}> 
 
-                        <Box  width='18.5rem' >                    
+                        <Box  className={classes.questions} >                    
 
                             <form onSubmit={handleSubmit}> 
                             <FormControl  component="fieldset">
