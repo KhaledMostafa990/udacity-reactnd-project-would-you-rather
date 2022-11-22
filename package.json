@@ -11,7 +11,7 @@
     "react-redux": "^7.2.6",
     "react-redux-loading": "^4.6.1",
     "react-router-dom": "^6.0.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.0"
   },
